@@ -12,11 +12,6 @@ services:
         - traefik.enable=true
         - traefik.http.routers.simpleservice.rule=Host(`simpleservice.swarm.droidme.io`)
         - traefik.http.routers.simpleservice.entrypoints=web
-        - traefik.http.services.simpleservice.loadbalancer.server.port=80
-        - traefik.http.services.simpleservice.loadbalancer.sticky=true
-        - traefik.http.services.simpleservice.loadbalancer.sticky.cookie.name=simpleservice
-        - traefik.http.services.simpleservice.loadbalancer.sticky.cookie.httpOnly=true
-
 networks:
   traefik-net:
     driver: overlay
