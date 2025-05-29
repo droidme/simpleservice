@@ -1,4 +1,4 @@
-FROM openjdk:21-jdk-alpine
+FROM eclipse-temurin:21
 LABEL authors="droidme"
 WORKDIR /app
 COPY target/*.jar /app/simpleservice.jar
