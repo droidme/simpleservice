@@ -3,16 +3,16 @@ version: '3.8'
 services:
   simpleservice:
     image: droidme/simpleservice:latest
+    networks:
+      - traefik-net
     deploy:
       mode: replicated
       replicas: 1
-    networks:
-        - traefik-net
-    labels:
-        - traefik.enable=true
-        - traefik.http.routers.simpleservice.rule=Host(`simpleservice.swarm.droidme.io`)
-        - traefik.http.routers.simpleservice.entrypoints=web
-        - traefik.http.services.simpleservice.loadbalancer.server.port=8080
+      labels:
+          - traefik.enable=true
+          - traefik.http.routers.simpleservice.rule=Host(`simpleservice.swarm.droidme.io`)
+          - traefik.http.routers.simpleservice.entrypoints=web
+          - traefik.http.services.simpleservice.loadbalancer.server.port=8080
 networks:
   traefik-net:
     driver: overlay
